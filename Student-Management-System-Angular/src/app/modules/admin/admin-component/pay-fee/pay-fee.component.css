@@ -1,0 +1,111 @@
+/* Background style */
+.bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+    position: relative;
+}
+
+/* Spinner styles */
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Parent container styles */
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.parent:hover {
+    transform: translate(-50%, -50%) translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+/* Child container styles */
+.child {
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Form title styles */
+.form-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+}
+
+/* Form styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form field styles */
+.form-field {
+    margin-bottom: 10px;
+}
+
+/* Form field width */
+mat-form-field {
+    width: 100%;
+}
+
+/* Button styles */
+button {
+    align-self: center;
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #3f51b5; /* Primary color for the button */
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    border-radius: 4px; /* Slightly rounded corners */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+button:hover {
+    background-color: #1976d2; /* Darker shade of primary color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Focus outline with white shadow */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+    .child {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .form-field {
+        margin-bottom: 12px; /* Adjust margin for smaller screens */
+    }
+
+    button {
+        width: 100%; /* Make the button full width on smaller screens */
+    }
+}

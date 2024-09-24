@@ -1,0 +1,19 @@
+<div class="card-container">
+    <mat-card class="student-card" *ngFor="let leave of leaves">
+        <mat-card-header>
+            <mat-card-title>{{ leave.name }}</mat-card-title>
+            <mat-card-subtitle>Class : <strong>{{ leave.studentClass }}</strong></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Subject : <strong>{{ leave.subject }}</strong></p>
+            <p>Body : <strong>{{ leave.body }}</strong></p>
+            <p>Date : <strong>{{ leave.date | date: 'MMM/dd/yyyy' }}</strong></p>
+            <p>Status : <strong [ngStyle]="{color : leave.studentLeaveStatus === 'Approved' ? 'green' : leave.studentLeaveStatus === 'Rejected' ? 'red' : 'blue'}">
+                    {{ leave.studentLeaveStatus }}</strong></p>
+        </mat-card-content>
+        <mat-card-actions class="actions-right">
+            <button mat-button color="primary" (click)="changeLeaveStatus(leave.id, 'Approve')">Accept</button>
+            <button mat-button color="warn" (click)="changeLeaveStatus(leave.id, 'Reject')">Reject</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,85 @@
+.bg {
+    display: flex;
+    justify-content: center;  /* Center horizontally */
+    align-items: flex-start;  /* Align items at the start (top) of the container */
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    position: relative;
+    padding-top: 50px;  /* Adjust padding to move the form down from the top */
+}
+
+.child {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 400px;  /* Reduced width */
+    width: 100%;
+    animation: fadeIn 0.5s ease-in-out;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.child:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;  /* Reduced margin for better alignment */
+    font-size: 24px;  /* Adjusted font size */
+    font-weight: 600;
+    color: #333;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;  /* Adjusted gap for a more compact look */
+}
+
+.form-field {
+    width: 100%;
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;  /* Adjusted font size */
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #005cbf;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 92, 191, 0.5);
+}

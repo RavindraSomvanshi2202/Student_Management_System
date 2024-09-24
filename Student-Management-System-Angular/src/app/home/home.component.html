@@ -1,0 +1,16 @@
+<div class="card-container">
+    <mat-card class="teacher-card" *ngFor="let teacher of teachers">
+        <mat-card-header>
+            <mat-card-title>Name : <strong>{{ teacher.name }}</strong></mat-card-title>
+            <mat-card-subtitle>Department : <strong>{{ teacher.department }}</strong></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Email : <strong>{{ teacher.email }}</strong></p>
+            <p>Contact Number : <strong>{{ teacher.contactNumber }}</strong></p>
+            <p>Qualification : <strong>{{ teacher.qualification }}</strong></p>
+            <p>Date of Birth : <strong>{{ teacher.dob | date: 'MMM/dd/yyyy' }}</strong></p>
+            <p>Gender : <strong>{{ teacher.gender }}</strong></p>
+            <p>Address : <strong>{{ teacher.address }}</strong></p>
+        </mat-card-content>
+    </mat-card>
+</div>

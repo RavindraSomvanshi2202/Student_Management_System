@@ -1,0 +1,80 @@
+<div class="bg">
+    <mat-spinner *ngIf="isSpinning" [diameter]="50" class="spinner"></mat-spinner>
+    <div class="parent">
+        <div class="child">
+            <h1 class="form-title">Update Teacher</h1>
+            <form class="details-form" [formGroup]="validateForm" (ngSubmit)="updateTeacher()">
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" placeholder="Enter Name" formControlName="name" />
+                    <mat-error *ngIf="validateForm.get('name')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Email</mat-label>
+                    <input matInput type="email" placeholder="Enter Email" formControlName="email" />
+                    <mat-error *ngIf="validateForm.get('email')?.hasError('required')">This input is required</mat-error>
+                    <mat-error *ngIf="validateForm.get('email')?.hasError('email')">Please enter a valid email address</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput 
+                           type="tel" 
+                           placeholder="Enter Contact Number" 
+                           formControlName="contactNumber" 
+                           maxlength="10"/>
+                    <mat-error *ngIf="validateForm.get('contactNumber')?.hasError('required')">
+                        This input is required
+                    </mat-error>
+                    <mat-error *ngIf="validateForm.get('contactNumber')?.hasError('pattern')">
+                        Please enter a valid 10-digit number
+                    </mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Qualification</mat-label>
+                    <input matInput type="text" placeholder="Enter Qualification" formControlName="qualification" />
+                    <mat-error *ngIf="validateForm.get('qualification')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Department</mat-label>
+                    <input matInput type="text" placeholder="Enter Department" formControlName="department" />
+                    <mat-error *ngIf="validateForm.get('department')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" placeholder="Choose date" formControlName="dob" />
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-error *ngIf="validateForm.get('dob')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Address</mat-label>
+                    <textarea matInput placeholder="Enter Address" formControlName="address"></textarea>
+                    <mat-error *ngIf="validateForm.get('address')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="form-field">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender" placeholder="Select Gender">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Not Specified">Not Specified</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="validateForm.get('gender')?.hasError('required')">This input is required</mat-error>
+                </mat-form-field>
+
+                <!-- Button container -->
+                <div class="button-container">
+                    <button mat-raised-button color="primary" [disabled]="validateForm.invalid" type="submit">
+                        Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

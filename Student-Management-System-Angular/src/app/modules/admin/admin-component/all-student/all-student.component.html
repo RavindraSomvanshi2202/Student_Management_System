@@ -1,0 +1,22 @@
+<div class="card-container">
+    <mat-card class="student-card" *ngFor="let student of students">
+        <mat-card-header>
+            <mat-card-title>Name : <strong>{{ student.name }}</strong></mat-card-title>
+            <mat-card-subtitle>Class : <strong>{{ student.studentClass }}</strong></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Email : <strong>{{ student.email }}</strong></p>
+            <p>Contact Number : <strong>{{ student.contactNumber }}</strong></p>
+            <p>Father Name : <strong>{{ student.fatherName }}</strong></p>
+            <p>Mother Name : <strong>{{ student.motherName }}</strong></p>
+            <p>Date of Birth : <strong>{{ student.dob | date: 'MMM/dd/yyyy' }}</strong></p>
+            <p>Gender : <strong>{{ student.gender }}</strong></p>
+            <p>Address : <strong>{{ student.address }}</strong></p>
+        </mat-card-content>
+        <mat-card-actions class="actions-right">
+            <button mat-button color="primary" routerLink="/admin/fee/{{student.id}}">Fees</button>
+            <button mat-button color="accent" routerLink="/admin/student/{{student.id}}">Update</button>
+            <button mat-button color="warn" (click)="deleteStudent(student.id)">Delete</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
